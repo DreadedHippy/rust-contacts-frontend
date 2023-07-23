@@ -1,0 +1,7 @@
+{
+  "name": "rust-contacts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
