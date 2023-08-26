@@ -1,0 +1,63 @@
+@import '../../../theme/mixins';
+ion-card {
+  width: min(400px, 90%);
+  margin: 1em auto;
+  padding: 0.5em;
+}
+
+.img-container {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  // border: 1px solid rgb(207, 207, 207);
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(0, 110, 255, 0.5),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    radial-gradient(
+      circle at 6.7% 75%,
+      rgba(0, 0, 255, 0.5),
+      rgba(0, 0, 255, 0) 70.71%
+    ),
+    radial-gradient(
+        circle at 93.3% 75%,
+        rgba(121, 45, 45, 0.5),
+        rgba(0, 255, 0, 0) 70.71%
+      ) rgb(37, 44, 44);
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .edit-button {
+    position: absolute;
+    right: 0.25em;
+    top: 0.25em;
+    width: 10%;
+    height: 10%;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.29);
+    text-align: center;
+    // vertical-align: middle;
+    padding: auto 0;
+    font-size: 2em;
+  }
+}
+
+.info-container {
+  @include flex(row, flex-start, 1em);
+  align-items: center;
+}
+
+ion-list-header {
+  background-color: rgba(174, 174, 174, 0.071);
+  ion-label {
+    font-size: 1.1em;
+    line-height: 1em;
+  }
+}

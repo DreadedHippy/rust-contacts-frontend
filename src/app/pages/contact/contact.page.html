@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contact</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card mode="md">
+    <ion-button (click)="deleteContact()" style="float: right; margin-bottom: 2em;"  fill="outline" color="danger">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+    <div class="img-container">
+      <img [src]="contact && contact.img_src !== '' ? contact.img_src : '../../../assets/icon/person-circle-outline.svg' " alt="profile">
+      <!-- <img src="../../../assets/icon/person-circle-outline.svg" alt=""> -->
+      <div class="edit-button">
+        <ion-icon name="create"></ion-icon>
+      </div>
+    </div>
+    <ion-card-header>
+      <ion-card-subtitle>{{contact ? contact.name : ''}}</ion-card-subtitle>
+      <ion-card-title>{{contact ? contact.number : ''}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="medium">
+        Additional information
+      </ion-text>
+      <ion-list>
+        <!-- <ion-list-header id="info-header">
+          <ion-label color="primary">Additional Info</ion-label>
+        </ion-list-header> -->
+
+        <ion-item mode="md">
+          <ion-icon slot="start" name="mail-sharp"></ion-icon>
+          <ion-label>{{contact ? contact.email : ''}}</ion-label>
+        </ion-item>
+        <!-- <ion-list-header>
+          <ion-label>Secondary phone numbers</ion-label>
+        </ion-list-header> -->
+
+        <!-- <ng-container *ngIf="contact ">
+          <ion-item mode="md" *ngFor="let number of contact.secondaryPhoneNumbers">
+            <ion-icon  slot="start" name="call-sharp"></ion-icon>
+            <ion-label>{{number}}</ion-label>
+          </ion-item>
+        </ng-container> -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

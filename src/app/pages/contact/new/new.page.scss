@@ -1,0 +1,20 @@
+ion-card {
+  width: min(400px, 90%);
+  margin: 1em auto;
+  padding: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+ion-input {
+  color: #fff
+}
+
+::ng-deep ion-input .label-text {
+  color: #a1a1a1
+
+}

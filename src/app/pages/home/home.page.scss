@@ -1,0 +1,25 @@
+ion-card {
+  width: 80%;
+  margin: 1em auto;
+}
+
+ion-avatar {
+  --border-radius: 4px;
+  height: 3.5em;
+  width: 3.5em;
+}
+
+.list-item {
+  padding: 0.5em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.list-item:hover {
+  transform: translateX(10px);
+
+}
+.test {
+  margin: 30% auto;
+  text-align: center;
+}

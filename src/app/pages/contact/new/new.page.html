@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>New Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Create new contact</ion-card-title>
+      <!-- <ion-card-subtitle>fill in the information below</ion-card-subtitle> -->
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="createContactForm" (ngSubmit)="onSubmit()">
+        <ion-input errorText="Name cannot be blank" label="Name (Required)" fill="outline" labelPlacement="floating" formControlName="name" type="text"></ion-input>
+        <ion-input errorText="At least 10 digits long" label="Number (Required)" fill="outline" labelPlacement="floating" formControlName="number" type="tel"></ion-input>
+        <br>
+        <ion-note>Additional Information</ion-note>
+        <ion-input label="E-mail" fill="outline" labelPlacement="floating" formControlName="email" type="text"></ion-input>
+        <ion-button block color="primary" email type="submit" [disabled]="createContactForm.invalid">
+          Submit
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

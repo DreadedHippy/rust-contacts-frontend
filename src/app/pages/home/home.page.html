@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="contacts.length > 0; else noContacts">
+    <ion-list>
+      <ion-item *ngFor="let contact of contacts" class="list-item" (click)="seeContactDetails(contact.id!)">
+        <ion-avatar slot="start">
+          <img [src]="image" alt="Contact image"/>
+        </ion-avatar>
+        <div>
+          <ion-label>{{contact.name}}</ion-label>
+          <ion-note>{{contact.number}}</ion-note>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <ng-template #noContacts>
+    <div class="test">
+      <ion-text class="no-contacts" color="primary">
+        <h2>No contacts found, create from the menu</h2>
+      </ion-text>
+    </div>
+  </ng-template>
+</ion-content>

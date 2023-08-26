@@ -1,0 +1,10 @@
+@mixin debug($color: red) {
+  border: 1px solid $color;
+}
+
+@mixin flex($direction, $justify, $gap: normal normal){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  gap: $gap;
+}
