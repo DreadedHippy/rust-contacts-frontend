@@ -12,10 +12,12 @@ import { Contact } from 'src/app/interfaces/contact';
 export class HomePage implements OnInit {
   image = "../../../assets/icon/favicon.png"
   contacts: Contact[] = [];
+  displayedContacts: Contact[] = [];
 
   constructor(private contactSrv: ContactService, private router: Router) {
     effect(() => {
       this.contacts = contactSrv.contactList()
+      this.displayedContacts = [...this.contacts];
     })
   }
 
@@ -29,6 +31,13 @@ export class HomePage implements OnInit {
 
   async getContacts() {
     this.contacts = await this.contactSrv.getContacts();
+  }
+
+  onSearchChange(e: any) {
+    const query = e.target.value.toLowerCase();
+    this.displayedContacts = this.contacts.filter((elem) =>
+      elem.name.toLowerCase().indexOf(query) > -1 || elem.number.toLowerCase().indexOf(query) > -1
+    );
   }
 
 }

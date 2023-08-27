@@ -5,12 +5,15 @@
     </ion-buttons>
     <ion-title>Contacts</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar show-clear-button="always" (ionInput)="onSearchChange($event)" [debounce]="250" placeholder="Filter Contacts"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ng-container *ngIf="contacts.length > 0; else noContacts">
     <ion-list>
-      <ion-item *ngFor="let contact of contacts" class="list-item" (click)="seeContactDetails(contact.id!)">
+      <ion-item *ngFor="let contact of displayedContacts" class="list-item" (click)="seeContactDetails(contact.id!)">
         <ion-avatar slot="start">
           <img [src]="image" alt="Contact image"/>
         </ion-avatar>

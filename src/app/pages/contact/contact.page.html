@@ -15,10 +15,14 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" size="small" (click)="openModal()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
   <ion-card mode="md">
-    <ion-button (click)="deleteContact()" style="float: right; margin-bottom: 2em;"  fill="outline" color="danger">
-      <ion-icon slot="icon-only" name="trash"></ion-icon>
-    </ion-button>
+
     <div class="img-container">
       <img [src]="contact && contact.img_src !== '' ? contact.img_src : '../../../assets/icon/person-circle-outline.svg' " alt="profile">
       <!-- <img src="../../../assets/icon/person-circle-outline.svg" alt=""> -->

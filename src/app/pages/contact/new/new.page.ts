@@ -13,9 +13,9 @@ export class NewPage implements OnInit {
 
   createContactForm = new FormGroup({
     name: new FormControl("", Validators.required),
-    number: new FormControl("", [Validators.required, Validators.minLength(10)]),
+    number: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(15)]),
     img_src: new FormControl(""),
-    email: new FormControl(""),
+    email: new FormControl("", [Validators.email]),
   })
 
   constructor(private contactSrv: ContactService, private router: Router) { }

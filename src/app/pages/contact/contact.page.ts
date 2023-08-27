@@ -1,5 +1,7 @@
 import { Component, OnInit, effect, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { Contact } from 'src/app/interfaces/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import { DataService } from 'src/app/services/data.service';
@@ -14,7 +16,11 @@ export class ContactPage implements OnInit {
   contacts: Contact[] = [];
   private activatedRoute = inject(ActivatedRoute);
 
-  constructor(private router: Router, private contactSrv: ContactService) {
+  constructor(
+    private router: Router,
+    private contactSrv: ContactService,
+    private modalCtrl: ModalController
+    ) {
     effect(() => {
       this.contacts = contactSrv.contactList();
     })
@@ -51,4 +57,18 @@ export class ContactPage implements OnInit {
     })
   }
 
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalComponent,
+      breakpoints: [0.25, 0.5, 0.75, 1],
+      initialBreakpoint: 0.25
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.deleteContact();
+    }
+  }
 }
